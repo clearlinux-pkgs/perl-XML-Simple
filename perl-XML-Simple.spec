@@ -4,7 +4,7 @@
 #
 Name     : perl-XML-Simple
 Version  : 2.20
-Release  : 6
+Release  : 7
 URL      : http://search.cpan.org/CPAN/authors/id/G/GR/GRANTM/XML-Simple-2.20.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/G/GR/GRANTM/XML-Simple-2.20.tar.gz
 Summary  : 'Easily read/write XML (esp config files)'
