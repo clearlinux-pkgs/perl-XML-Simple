@@ -4,12 +4,12 @@
 #
 Name     : perl-XML-Simple
 Version  : 2.22
-Release  : 10
+Release  : 11
 URL      : http://search.cpan.org/CPAN/authors/id/G/GR/GRANTM/XML-Simple-2.22.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/G/GR/GRANTM/XML-Simple-2.22.tar.gz
 Summary  : 'An API for simple XML files'
 Group    : Development/Tools
-License  : Artistic-1.0-Perl
+License  : Artistic-1.0-Perl GPL-1.0
 Requires: perl-XML-Simple-doc
 
 %description
@@ -51,8 +51,8 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.22.0/XML/Simple.pm
-/usr/lib/perl5/site_perl/5.22.0/XML/Simple/FAQ.pod
+/usr/lib/perl5/site_perl/5.24.0/XML/Simple.pm
+/usr/lib/perl5/site_perl/5.24.0/XML/Simple/FAQ.pod
 
 %files doc
 %defattr(-,root,root,-)
