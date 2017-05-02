@@ -4,7 +4,7 @@
 #
 Name     : perl-XML-Simple
 Version  : 2.24
-Release  : 12
+Release  : 13
 URL      : http://search.cpan.org/CPAN/authors/id/G/GR/GRANTM/XML-Simple-2.24.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/G/GR/GRANTM/XML-Simple-2.24.tar.gz
 Summary  : 'An API for simple XML files'
