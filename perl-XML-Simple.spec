@@ -4,12 +4,12 @@
 #
 Name     : perl-XML-Simple
 Version  : 2.24
-Release  : 13
+Release  : 14
 URL      : http://search.cpan.org/CPAN/authors/id/G/GR/GRANTM/XML-Simple-2.24.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/G/GR/GRANTM/XML-Simple-2.24.tar.gz
 Summary  : 'An API for simple XML files'
 Group    : Development/Tools
-License  : Artistic-1.0-Perl
+License  : Artistic-1.0-Perl GPL-1.0
 Requires: perl-XML-Simple-doc
 
 %description
@@ -29,6 +29,9 @@ doc components for the perl-XML-Simple package.
 %setup -q -n XML-Simple-2.24
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
@@ -52,8 +55,8 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.24.0/XML/Simple.pm
-/usr/lib/perl5/site_perl/5.24.0/XML/Simple/FAQ.pod
+/usr/lib/perl5/site_perl/5.26.0/XML/Simple.pm
+/usr/lib/perl5/site_perl/5.26.0/XML/Simple/FAQ.pod
 
 %files doc
 %defattr(-,root,root,-)
