@@ -4,25 +4,34 @@
 #
 Name     : perl-XML-Simple
 Version  : 2.25
-Release  : 19
-URL      : http://search.cpan.org/CPAN/authors/id/G/GR/GRANTM/XML-Simple-2.25.tar.gz
-Source0  : http://search.cpan.org/CPAN/authors/id/G/GR/GRANTM/XML-Simple-2.25.tar.gz
+Release  : 20
+URL      : https://cpan.metacpan.org/authors/id/G/GR/GRANTM/XML-Simple-2.25.tar.gz
+Source0  : https://cpan.metacpan.org/authors/id/G/GR/GRANTM/XML-Simple-2.25.tar.gz
 Summary  : 'An API for simple XML files'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
-Requires: perl-XML-Simple-doc
+Requires: perl-XML-Simple-license
+Requires: perl-XML-Simple-man
 
 %description
 This archive contains the distribution XML-Simple,
 version 2.25:
 An API for simple XML files
 
-%package doc
-Summary: doc components for the perl-XML-Simple package.
-Group: Documentation
+%package license
+Summary: license components for the perl-XML-Simple package.
+Group: Default
 
-%description doc
-doc components for the perl-XML-Simple package.
+%description license
+license components for the perl-XML-Simple package.
+
+
+%package man
+Summary: man components for the perl-XML-Simple package.
+Group: Default
+
+%description man
+man components for the perl-XML-Simple package.
 
 
 %prep
@@ -43,6 +52,8 @@ fi
 
 %install
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/doc/perl-XML-Simple
+cp LICENSE %{buildroot}/usr/share/doc/perl-XML-Simple/LICENSE
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot}
 else
@@ -58,6 +69,11 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 /usr/lib/perl5/site_perl/5.26.1/XML/Simple.pm
 /usr/lib/perl5/site_perl/5.26.1/XML/Simple/FAQ.pod
 
-%files doc
-%defattr(0644,root,root,0755)
-%doc /usr/share/man/man3/*
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/perl-XML-Simple/LICENSE
+
+%files man
+%defattr(-,root,root,-)
+/usr/share/man/man3/XML::Simple.3
+/usr/share/man/man3/XML::Simple::FAQ.3
