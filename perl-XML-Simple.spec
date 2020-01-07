@@ -4,13 +4,14 @@
 #
 Name     : perl-XML-Simple
 Version  : 2.25
-Release  : 30
+Release  : 31
 URL      : https://cpan.metacpan.org/authors/id/G/GR/GRANTM/XML-Simple-2.25.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/G/GR/GRANTM/XML-Simple-2.25.tar.gz
 Summary  : 'An API for simple XML files'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-XML-Simple-license = %{version}-%{release}
+Requires: perl-XML-Simple-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 
 %description
@@ -22,6 +23,7 @@ An API for simple XML files
 Summary: dev components for the perl-XML-Simple package.
 Group: Development
 Provides: perl-XML-Simple-devel = %{version}-%{release}
+Requires: perl-XML-Simple = %{version}-%{release}
 
 %description dev
 dev components for the perl-XML-Simple package.
@@ -35,14 +37,24 @@ Group: Default
 license components for the perl-XML-Simple package.
 
 
+%package perl
+Summary: perl components for the perl-XML-Simple package.
+Group: Default
+Requires: perl-XML-Simple = %{version}-%{release}
+
+%description perl
+perl components for the perl-XML-Simple package.
+
+
 %prep
 %setup -q -n XML-Simple-2.25
+cd %{_builddir}/XML-Simple-2.25
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -54,7 +66,7 @@ fi
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-XML-Simple
-cp LICENSE %{buildroot}/usr/share/package-licenses/perl-XML-Simple/LICENSE
+cp %{_builddir}/XML-Simple-2.25/LICENSE %{buildroot}/usr/share/package-licenses/perl-XML-Simple/fb6772d29e4082e7a9cc780a9e05de9d97d63940
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -67,8 +79,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/XML/Simple.pm
-/usr/lib/perl5/vendor_perl/5.28.2/XML/Simple/FAQ.pod
 
 %files dev
 %defattr(-,root,root,-)
@@ -77,4 +87,9 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-XML-Simple/LICENSE
+/usr/share/package-licenses/perl-XML-Simple/fb6772d29e4082e7a9cc780a9e05de9d97d63940
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/XML/Simple.pm
+/usr/lib/perl5/vendor_perl/5.30.1/XML/Simple/FAQ.pod
