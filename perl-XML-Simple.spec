@@ -4,7 +4,7 @@
 #
 Name     : perl-XML-Simple
 Version  : 2.25
-Release  : 40
+Release  : 41
 URL      : https://cpan.metacpan.org/authors/id/G/GR/GRANTM/XML-Simple-2.25.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/G/GR/GRANTM/XML-Simple-2.25.tar.gz
 Summary  : 'An API for simple XML files'
@@ -91,5 +91,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.34.0/XML/Simple.pm
-/usr/lib/perl5/vendor_perl/5.34.0/XML/Simple/FAQ.pod
+/usr/lib/perl5/*
