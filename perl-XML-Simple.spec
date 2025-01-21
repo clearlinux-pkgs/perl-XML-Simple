@@ -5,7 +5,7 @@
 #
 Name     : perl-XML-Simple
 Version  : 2.25
-Release  : 45
+Release  : 46
 URL      : https://cpan.metacpan.org/authors/id/G/GR/GRANTM/XML-Simple-2.25.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/G/GR/GRANTM/XML-Simple-2.25.tar.gz
 Summary  : 'An API for simple XML files'
